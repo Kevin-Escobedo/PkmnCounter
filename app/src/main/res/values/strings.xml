@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PkmnCounter</string>
+    <string name="app_name">Pokemon Step Counter</string>
     <string name="pokeball">Pokeball</string>
     <string name="title">Title</string>
     <string name="steps">Steps</string>
