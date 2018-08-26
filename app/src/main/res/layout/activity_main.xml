@@ -2,89 +2,76 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
+    android:maxHeight="800dp"
+    android:maxWidth="500dp"
+    android:minHeight="500dp"
+    android:minWidth="500dp"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linearlayout2"
-        android:layout_width="0dp"
-        android:layout_height="98dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="337dp"
+        android:layout_height="263dp"
         android:layout_gravity="center"
-        android:orientation="vertical"
+        android:layout_marginBottom="46dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:contentDescription="@string/pokeball"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037"
-        app:layout_constraintVertical_chainStyle="spread_inside">
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:srcCompat="@mipmap/pokeball" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/title"
-            app:srcCompat="@mipmap/pokemon_writing" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="208dp"
-        android:layout_gravity="center"
-        android:layout_margin="0px"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="409dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="367dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="26dp"
+        android:contentDescription="@string/title"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:contentDescription="@string/pokeball"
-            app:srcCompat="@mipmap/pokeball" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearlayout3"
-        android:layout_width="358dp"
-        android:layout_height="353dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.195">
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="308dp"
-            android:layout_height="460dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/steps"
-            android:scaleType="fitCenter"
-            app:srcCompat="@mipmap/footprint" />
-    </LinearLayout>
+        app:srcCompat="@mipmap/pokemon_writing" />
 
     <Button
+        style="?android:borderlessButtonStyle"
         android:id="@+id/button2"
-        android:layout_width="141dp"
-        android:layout_height="57dp"
-        android:layout_marginBottom="16dp"
-        android:background="@mipmap/start"
+        android:layout_width="142dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="37dp"
+        android:background="@drawable/start_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="326dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="23dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="174dp"
+        android:adjustViewBounds="false"
+        android:contentDescription="@string/steps"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.26"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/footprint" />
 
 
 </android.support.constraint.ConstraintLayout>
