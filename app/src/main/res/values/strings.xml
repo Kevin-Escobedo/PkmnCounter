@@ -10,6 +10,14 @@
     <string name="pkmn_name">Pokémon\'s name</string>
     <string name="version">Version</string>
     <string name="encounter">Encounter Manager</string>
+    <string name="add_button">Add Button</string>
+    <string name="chosen_version">Chosen Version</string>
+    <string name="chosen_method">Chosen Method</string>
+    <string name="pkmn_image">Pokemon Image</string>
+    <string name="pkmn_chosen_name">Pokemon Name</string>
+    <string name="pkmn_chosen_number">Pokemon Number</string>
+    <string name="rate">Rate</string>
+
     <string-array name="pokedex">
         <item>Bulbizarre</item>
         <item>Herbizarre</item>

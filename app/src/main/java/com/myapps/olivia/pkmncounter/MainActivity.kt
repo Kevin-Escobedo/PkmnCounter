@@ -2,20 +2,13 @@ package com.myapps.olivia.pkmncounter
 
 import android.content.Intent
 import android.graphics.Rect
-import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.KeyEvent
 import android.view.View
 import android.widget.*
 import com.myapps.olivia.pkmncounter.entities.Method
 import com.myapps.olivia.pkmncounter.entities.Version
-import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
 import kotlinx.android.synthetic.main.activity_main.*
-import me.sargunvohra.lib.pokekotlin.model.NamedApiResourceList
-import me.sargunvohra.lib.pokekotlin.model.Pokemon
 import android.widget.EditText
 import android.view.MotionEvent
 import java.util.*
@@ -30,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         var chosenMethod = Method()
         var chromaCharm = false
         var pokemonNumber = 0
+        var chosenPokemonName = ""
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -38,7 +32,9 @@ class MainActivity : AppCompatActivity() {
         val checkBoxChroma = findViewById<CheckBox>(R.id.chroma_charm)
         val spinnerMethod = findViewById<Spinner>(R.id.method_spinner)
         val pokemonName = findViewById<EditText>(R.id.pokemon_name)
+        val secondActivityButton = findViewById<Button>(R.id.startButton)
 
+        secondActivityButton.isEnabled = false
         checkBoxChroma.isChecked = false
         checkBoxChroma.isEnabled = false
 
@@ -84,20 +80,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        intent = Intent(baseContext)
-
         pokemonName.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
             if (!hasFocus) {
                 val userPokemonNameInput = pokemonName.text.toString()
-                val pkmnIndex = pokemonList.indexOf(userPokemonNameInput) + 1
-                val retrievePokemon = RetrievePokemon()
-                try {
-                    val fetchedPkmn = retrievePokemon.execute(pkmnIndex)
-                    Toast.makeText(application.baseContext, "Ton pokémon est: " + fetchedPkmn.get().name, Toast.LENGTH_SHORT).show()
-                    pokemonNumber = fetchedPkmn.get().id
-                } catch(e : Exception){
+
+                if (pokemonList.contains(userPokemonNameInput)) {
+                    val pkmnIndex = pokemonList.indexOf(userPokemonNameInput) + 1
+                    Toast.makeText(application.baseContext, "Ton pokémon est le numéro $pkmnIndex", Toast.LENGTH_SHORT).show()
+                    pokemonNumber = pkmnIndex
+                    chosenPokemonName = userPokemonNameInput
+                    secondActivityButton.isEnabled = true
+                }
+                else{
                     Toast.makeText(application.baseContext, "Ton pokémon n'a pas été trouvé... Vérifie l'orthographe et la génération ;) ", Toast.LENGTH_SHORT).show()
                     pokemonName.text.clear()
+                    secondActivityButton.isEnabled = false
                 }
                 onContentChanged()
             }
@@ -107,9 +104,11 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("chosenMethod",chosenMethod)
         intent.putExtra("chromaCharm",chromaCharm)
         intent.putExtra("pokemonNumber",pokemonNumber)
-        startActivity(intent)
-        )
+        intent.putExtra("pokemonName",chosenPokemonName)
 
+        println("INFORMATION FROM MAIN $chosenMethod$chosenVersion$pokemonNumber$chosenPokemonName$chromaCharm")
+
+        secondActivityButton.setOnClickListener { startActivity(intent)}
     }
 
     fun versionList(): ArrayList<Version> {
@@ -147,20 +146,6 @@ class MainActivity : AppCompatActivity() {
             7 -> methods.addAll(listOf(method4, method8))
         }
         return methods
-    }
-
-    inner class RetrievePokemon : AsyncTask<Int, Void, Pokemon>() {
-        override fun doInBackground(vararg params: Int?): Pokemon? {
-            var fetchedPokemon: Pokemon? = null
-            val pokeApi = PokeApiClient()
-            val index: Int = params[0]!!
-            try{
-                fetchedPokemon = pokeApi.getPokemon(index)
-            }catch (e : Exception){}
-            finally {
-                return fetchedPokemon
-            }
-        }
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
