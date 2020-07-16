@@ -2,15 +2,14 @@ package com.myapps.olivia.pkmncounter
 
 import android.content.Intent
 import android.graphics.Rect
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.view.MotionEvent
 import android.view.View
 import android.widget.*
 import com.myapps.olivia.pkmncounter.entities.Method
 import com.myapps.olivia.pkmncounter.entities.Version
 import kotlinx.android.synthetic.main.activity_main.*
-import android.widget.EditText
-import android.view.MotionEvent
 import java.util.*
 
 
@@ -24,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         var chromaCharm = false
         var pokemonNumber = 0
         var chosenPokemonName = ""
+        val countActivity = Intent(this@MainActivity, CountActivity::class.java)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -65,6 +65,10 @@ class MainActivity : AppCompatActivity() {
                     checkBoxChroma.isChecked = false
                     chromaCharm = false
                 }
+                countActivity.putExtra("chosenVersion",chosenVersion)
+                countActivity.putExtra("chosenMethod",chosenMethod)
+
+                countActivity.putExtra("chromaCharm",chromaCharm)
 
                 when(chosenVersion.number){
                     1 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,150)
@@ -86,43 +90,35 @@ class MainActivity : AppCompatActivity() {
 
                 if (pokemonList.contains(userPokemonNameInput)) {
                     val pkmnIndex = pokemonList.indexOf(userPokemonNameInput) + 1
-                    Toast.makeText(application.baseContext, "Ton pokémon est le numéro $pkmnIndex", Toast.LENGTH_SHORT).show()
                     pokemonNumber = pkmnIndex
                     chosenPokemonName = userPokemonNameInput
+                    countActivity.putExtra("pokemonName",chosenPokemonName)
+                    countActivity.putExtra("pokemonNumber",pokemonNumber)
                     secondActivityButton.isEnabled = true
                 }
                 else{
-                    Toast.makeText(application.baseContext, "Ton pokémon n'a pas été trouvé... Vérifie l'orthographe et la génération ;) ", Toast.LENGTH_SHORT).show()
-                    pokemonName.text.clear()
                     secondActivityButton.isEnabled = false
                 }
                 onContentChanged()
             }
         }
 
-        intent.putExtra("chosenVersion",chosenVersion)
-        intent.putExtra("chosenMethod",chosenMethod)
-        intent.putExtra("chromaCharm",chromaCharm)
-        intent.putExtra("pokemonNumber",pokemonNumber)
-        intent.putExtra("pokemonName",chosenPokemonName)
+        println("EXTRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+countActivity.extras.toString());
 
-        println("INFORMATION FROM MAIN $chosenMethod$chosenVersion$pokemonNumber$chosenPokemonName$chromaCharm")
-
-        secondActivityButton.setOnClickListener { startActivity(intent)}
+        secondActivityButton.setOnClickListener { startActivity(countActivity)}
     }
 
     fun versionList(): ArrayList<Version> {
         val versions = arrayListOf<Version>()
-        val version1 = Version(1, "Red/Blue/Yellow")
-        val version2 = Version(2, "Gold/Silver/Crystal")
-        val version3 = Version(3, "Ruby/Sapphire/Emerald")
-        val version4 = Version(4, "Diamond/Pearl/Platinum")
-        val version5 = Version(5, "Black/White 1 & 2")
-        val version6 = Version(6, "X/Y/Omega Rubis/Alpha Sapphire")
-        val version7 = Version(7, "(Ultra)Sun/Moon")
+        val version1 = Version(1, "Gold/Silver/Crystal")
+        val version2 = Version(2, "Ruby/Sapphire/Emerald")
+        val version3 = Version(3, "Diamond/Pearl/Platinum")
+        val version4 = Version(4, "Black/White 1 & 2")
+        val version5 = Version(5, "X/Y/Omega Rubis/Alpha Sapphire")
+        val version6 = Version(6, "(Ultra)Sun/Moon")
         versions.addAll(listOf(
-                version1, version2, version3,
-                version4, version5, version6, version7))
+                version1, version2,
+                version3, version4, version5, version6))
         return versions
     }
 

@@ -16,5 +16,3 @@ Don't hesitate to give my your insight about this project and how I could improv
 - improve first activity lifecycle 
 - fix second activity display problem
 - improve general look
-
-## TestTestTest

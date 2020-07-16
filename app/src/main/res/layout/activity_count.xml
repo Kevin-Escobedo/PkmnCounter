@@ -4,183 +4,154 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:layout_editor_absoluteY="25dp">
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="211dp"
-        android:layout_height="212dp"
+        android:id="@+id/addButton"
+        android:layout_width="164dp"
+        android:layout_height="164dp"
+        android:layout_marginStart="123dp"
         android:layout_marginBottom="112dp"
-        android:background="@drawable/add"
-        android:text="@string/add_button"
+        android:background="@mipmap/pokeball"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/pkmnImage"
-        android:layout_width="151dp"
-        android:layout_height="91dp"
-        android:layout_marginBottom="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/occurrences"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.875"
-        app:srcCompat="@mipmap/pokeball" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="61dp"
-        android:layout_marginEnd="27dp"
+        android:layout_width="168dp"
+        android:layout_height="108dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="monospace"
-        android:gravity="center_vertical"
+        android:fontFamily="casual"
+        android:gravity="center_horizontal|center_vertical"
         android:text="@string/chosen_version"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toStartOf="@+id/versionName"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="9dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginStart="16dp"
-        android:fontFamily="monospace"
-        android:gravity="center_vertical"
+        android:layout_width="167dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="116dp"
+        android:fontFamily="casual"
+        android:gravity="center_horizontal|center_vertical"
         android:text="@string/chosen_method"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toStartOf="@+id/methodName"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="125dp"
-        android:layout_marginEnd="29dp"
+        android:layout_width="168dp"
+        android:layout_height="107dp"
         android:layout_marginStart="16dp"
-        android:fontFamily="monospace"
-        android:gravity="center_vertical"
+        android:layout_marginTop="212dp"
+        android:fontFamily="casual"
+        android:gravity="center_horizontal|center_vertical"
         android:text="@string/pkmn_chosen_name"
-        app:layout_constraintBottom_toTopOf="@+id/occurrences"
-        app:layout_constraintEnd_toStartOf="@+id/pokemonName"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="0dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginStart="73dp"
-        android:fontFamily="monospace"
+        android:layout_width="65dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="344dp"
+        android:fontFamily="casual"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/rate"
-        app:layout_constraintBaseline_toBaselineOf="@+id/occurrences"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/versionName"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="57dp"
-        android:layout_marginEnd="19dp"
+        android:layout_width="183dp"
+        android:layout_height="106dp"
         android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
+        android:layout_marginEnd="37dp"
+        android:fontFamily="casual"
+        android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/pokemonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/methodName"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="6dp"
-        android:layout_marginEnd="22dp"
-        android:gravity="fill_vertical"
+        android:layout_width="183dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="118dp"
+        android:layout_marginEnd="38dp"
+        android:fontFamily="casual"
+        android:gravity="center_horizontal|fill_vertical"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/pokemonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/versionName" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/pokemonName"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="123dp"
-        android:layout_marginEnd="21dp"
-        android:gravity="center_vertical"
+        android:layout_width="184dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="213dp"
+        android:layout_marginEnd="38dp"
+        android:fontFamily="casual"
+        android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/versionName" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/occurrences"
-        android:layout_width="74dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="335dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginStart="46dp"
+        android:layout_width="123dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="332dp"
+        android:layout_marginBottom="334dp"
         android:gravity="center_vertical|center_horizontal"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/methodRate"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="335dp"
+        android:layout_width="35dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="330dp"
+        android:layout_marginEnd="150dp"
         android:fontFamily="monospace"
         android:gravity="center_vertical|center_horizontal"
         android:text="/ "
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/methodRate"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/pokemonName" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/methodRate"
-        android:layout_width="73dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="224dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginTop="224dp"
-        android:gravity="center_vertical|center_horizontal"
+        android:layout_width="105dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="332dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="333dp"
+        android:gravity="fill_vertical"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="87dp"
-        android:layout_height="83dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/validate"
-        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/confirmButton"
+        android:layout_width="66dp"
+        android:layout_height="59dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/validate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>
