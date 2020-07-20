@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pokemon Step Counter</string>
+    <string name="app_name">Pokémon Shiny Encounter</string>
     <string name="pokeball">Pokeball</string>
     <string name="title">Title</string>
     <string name="steps">Steps</string>
@@ -7,7 +7,7 @@
     <string name="stats_button">Stats Button</string>
     <string name="method">Method</string>
     <string name="chroma">Chroma charm</string>
-    <string name="pkmn_name">Pokémon\'s name</string>
+    <string name="pkmn_name">Pokémon</string>
     <string name="version">Version</string>
     <string name="encounter">Encounter Manager</string>
     <string name="add_button">Add Button</string>

@@ -17,16 +17,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        var pokemonList: Array<String> = emptyArray()
-        var chosenVersion = Version()
-        var chosenMethod = Method()
-        var chromaCharm = false
-        var pokemonNumber = 0
-        var chosenPokemonName = ""
-        val countActivity = Intent(this@MainActivity, CountActivity::class.java)
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        var pokemonList: Array<String> = emptyArray()
+        val countActivity = Intent(this@MainActivity, CountActivity::class.java)
+        val occurrences = intent.getSerializableExtra("occurrences")
+
 
         val spinnerVersion = findViewById<Spinner>(R.id.version_spinner)
         val checkBoxChroma = findViewById<CheckBox>(R.id.chroma_charm)
@@ -49,13 +46,23 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                pokemonName.text.clear()
-               chosenVersion = version_spinner.selectedItem as Version
+                var chromaCharm = false;
+               val chosenVersion = version_spinner.selectedItem as Version
                 val methodAdapter = ArrayAdapter<Method>(applicationContext,
                         android.R.layout.simple_spinner_item, methodList(chosenVersion))
                 methodAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice)
                 spinnerMethod.adapter = methodAdapter
-                chosenMethod = method_spinner.selectedItem as Method
+
+                method_spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                    override fun onNothingSelected(p0: AdapterView<*>?) {
+                    }
+
+                    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                        val chosenMethod = method_spinner.selectedItem as Method
+                        countActivity.putExtra("chosenMethod",chosenMethod)
+                    }
+                }
+
 
                 if (chosenVersion.number >= 6) {
                     checkBoxChroma.isEnabled = true
@@ -65,22 +72,18 @@ class MainActivity : AppCompatActivity() {
                     checkBoxChroma.isChecked = false
                     chromaCharm = false
                 }
-                countActivity.putExtra("chosenVersion",chosenVersion)
-                countActivity.putExtra("chosenMethod",chosenMethod)
-
-                countActivity.putExtra("chromaCharm",chromaCharm)
 
                 when(chosenVersion.number){
-                    1 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,150)
-                    2 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,250)
-                    3 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,385)
-                    4 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,492)
-                    5 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,648)
-                    6 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,720)
-                    7 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,806)
+                    1 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,250)
+                    2 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,385)
+                    3 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,492)
+                    4 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,648)
+                    5 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,720)
+                    6 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,806)
                     else -> pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,806) //by default
                 }
-                onContentChanged()
+                countActivity.putExtra("chosenVersion",chosenVersion)
+                countActivity.putExtra("chromaCharm",chromaCharm)
             }
         }
 
@@ -90,20 +93,21 @@ class MainActivity : AppCompatActivity() {
 
                 if (pokemonList.contains(userPokemonNameInput)) {
                     val pkmnIndex = pokemonList.indexOf(userPokemonNameInput) + 1
-                    pokemonNumber = pkmnIndex
-                    chosenPokemonName = userPokemonNameInput
-                    countActivity.putExtra("pokemonName",chosenPokemonName)
-                    countActivity.putExtra("pokemonNumber",pokemonNumber)
+                    val pokemonNumber = pkmnIndex
                     secondActivityButton.isEnabled = true
+                    println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAh" + userPokemonNameInput)
+                    countActivity.putExtra("pokemonNumber",pokemonNumber)
+
                 }
-                else{
-                    secondActivityButton.isEnabled = false
+                else {
+                secondActivityButton.isEnabled = false
                 }
-                onContentChanged()
+                countActivity.putExtra("userPokemonNameInput",userPokemonNameInput)
+
             }
         }
 
-        println("EXTRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+countActivity.extras.toString());
+        countActivity.putExtra("occurrences",occurrences)
 
         secondActivityButton.setOnClickListener { startActivity(countActivity)}
     }
