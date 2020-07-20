@@ -1,22 +1,22 @@
 <resources>
-    <string name="app_name">Pokémon Shiny Encounter</string>
-    <string name="pokeball">Pokeball</string>
-    <string name="title">Title</string>
-    <string name="steps">Steps</string>
+    <string name="app_name">Shiny Hunt Manager</string>
+    <string name="pokeball">Pokéball</string>
+    <string name="title">Titre</string>
+    <string name="steps">Pas</string>
+    <string name="counter">Cpt</string>
     <string name="start_button">Start Button</string>
     <string name="stats_button">Stats Button</string>
     <string name="method">Method</string>
-    <string name="chroma">Chroma charm</string>
+    <string name="chroma">Charme chroma</string>
     <string name="pkmn_name">Pokémon</string>
     <string name="version">Version</string>
-    <string name="encounter">Encounter Manager</string>
+    <string name="encounter">Shiny Hunt manager</string>
     <string name="add_button">Add Button</string>
-    <string name="chosen_version">Chosen Version</string>
-    <string name="chosen_method">Chosen Method</string>
+    <string name="chosen_version">Version</string>
+    <string name="chosen_method">Méthode</string>
     <string name="pkmn_image">Pokemon Image</string>
-    <string name="pkmn_chosen_name">Pokemon Name</string>
-    <string name="pkmn_chosen_number">Pokemon Number</string>
-    <string name="rate">Rate</string>
+    <string name="pkmn_chosen_name">Pokémon"</string>
+    <string name="rate">Taux</string>
 
     <string-array name="pokedex">
         <item>Bulbizarre</item>

@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val checkBoxChroma = findViewById<CheckBox>(R.id.chroma_charm)
         val spinnerMethod = findViewById<Spinner>(R.id.method_spinner)
         val pokemonName = findViewById<EditText>(R.id.pokemon_name)
-        val secondActivityButton = findViewById<Button>(R.id.startButton)
+        val secondActivityButton = findViewById<Button>(R.id.addButton)
 
         secondActivityButton.isEnabled = false
         checkBoxChroma.isChecked = false
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
 
-                if (chosenVersion.number >= 6) {
+                if (chosenVersion.number >= 5) {
                     checkBoxChroma.isEnabled = true
                     chromaCharm = true
                 } else {
@@ -78,8 +78,10 @@ class MainActivity : AppCompatActivity() {
                     2 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,385)
                     3 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,492)
                     4 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,648)
-                    5 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,720)
-                    6 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,806)
+                    5 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,648)
+                    6 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,720)
+                    7 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,720)
+                    8 ->  pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,806)
                     else -> pokemonList = resources.getStringArray(R.array.pokedex).copyOfRange(0,806) //by default
                 }
                 countActivity.putExtra("chosenVersion",chosenVersion)
@@ -95,9 +97,7 @@ class MainActivity : AppCompatActivity() {
                     val pkmnIndex = pokemonList.indexOf(userPokemonNameInput) + 1
                     val pokemonNumber = pkmnIndex
                     secondActivityButton.isEnabled = true
-                    println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAh" + userPokemonNameInput)
                     countActivity.putExtra("pokemonNumber",pokemonNumber)
-
                 }
                 else {
                 secondActivityButton.isEnabled = false
@@ -116,13 +116,15 @@ class MainActivity : AppCompatActivity() {
         val versions = arrayListOf<Version>()
         val version1 = Version(1, "Gold/Silver/Crystal")
         val version2 = Version(2, "Ruby/Sapphire/Emerald")
-        val version3 = Version(3, "Diamond/Pearl/Platinum")
-        val version4 = Version(4, "Black/White 1 & 2")
-        val version5 = Version(5, "X/Y/Omega Rubis/Alpha Sapphire")
-        val version6 = Version(6, "(Ultra)Sun/Moon")
+        val version3 = Version(3, "Diamond/Pearl/Platinum/HG/SS")
+        val version4 = Version(4, "Black/White")
+        val version5 = Version(5, "Black/White 2")
+        val version6 = Version(6, "X/Y")
+        val version7 = Version(7, "Omega Rubis/Alpha Sapphire")
+        val version8 = Version(8, "(Ultra)Sun/Moon")
         versions.addAll(listOf(
                 version1, version2,
-                version3, version4, version5, version6))
+                version3, version4, version5, version6,version7, version8))
         return versions
     }
 
@@ -137,13 +139,24 @@ class MainActivity : AppCompatActivity() {
         val method7 = Method("Fishing")
         val method8 = Method("Masuda")
 
-        methods.add(method1)
+        methods.addAll(listOf(method1,method8))
+
+        /*
+        Version 1: or, argent, cristal
+        2: rubis, saphire, émeraude
+        3: diamant, perle, platine
+        4: noir/blanc
+        5: noir 2/blanc2
+        6: X/Y
+        7: rubis alpha
+        8: soleil lune
+         */
 
         when (version.number) {
-            4 -> methods.addAll(listOf(method6, method8))
-            5 -> methods.add(method8)
-            6 -> methods.addAll(listOf(method2, method3, method5, method6, method7, method8))
-            7 -> methods.addAll(listOf(method4, method8))
+            3 -> methods.add(method6)
+            6 -> methods.addAll(listOf(method5, method6, method7))
+            7 -> methods.addAll(listOf(method2,method3, method7))
+            8 -> methods.add(method4)
         }
         return methods
     }
