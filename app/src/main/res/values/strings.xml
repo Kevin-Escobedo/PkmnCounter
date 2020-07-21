@@ -1,12 +1,11 @@
 <resources>
-    <string name="app_name">Shiny Hunt Manager</string>
+    <string name="app_name">Shasse Manager</string>
     <string name="pokeball">Pokéball</string>
     <string name="title">Titre</string>
-    <string name="steps">Pas</string>
-    <string name="counter">Cpt</string>
+    <string name="counter">Compteur </string>
     <string name="start_button">Start Button</string>
     <string name="stats_button">Stats Button</string>
-    <string name="method">Method</string>
+    <string name="method">Méthode</string>
     <string name="chroma">Charme chroma</string>
     <string name="pkmn_name">Pokémon</string>
     <string name="version">Version</string>

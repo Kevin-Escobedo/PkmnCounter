@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val checkBoxChroma = findViewById<CheckBox>(R.id.chroma_charm)
         val spinnerMethod = findViewById<Spinner>(R.id.method_spinner)
         val pokemonName = findViewById<EditText>(R.id.pokemon_name)
-        val secondActivityButton = findViewById<Button>(R.id.addButton)
+        val secondActivityButton = findViewById<Button>(R.id.startButton)
 
         secondActivityButton.isEnabled = false
         checkBoxChroma.isChecked = false
@@ -62,7 +62,6 @@ class MainActivity : AppCompatActivity() {
                         countActivity.putExtra("chosenMethod",chosenMethod)
                     }
                 }
-
 
                 if (chosenVersion.number >= 5) {
                     checkBoxChroma.isEnabled = true
@@ -130,27 +129,16 @@ class MainActivity : AppCompatActivity() {
 
     fun methodList(version: Version): ArrayList<Method> {
         val methods = arrayListOf<Method>()
-        val method1 = Method("Random/Soft-reset")
-        val method2 = Method("Navidex")
-        val method3 = Method("Hord")
-        val method4 = Method("SOS")
-        val method5 = Method("Friends Safari")
-        val method6 = Method("Pokeradar")
-        val method7 = Method("Fishing")
-        val method8 = Method("Masuda")
+        val method1 = Method(1,"Random/Soft-reset")
+        val method2 = Method(2,"Navidex")
+        val method3 = Method(3,"Hord")
+        val method4 = Method(4,"SOS")
+        val method5 = Method(5,"Friends Safari")
+        val method6 = Method(6,"Pokeradar")
+        val method7 = Method(7,"Fishing")
+        val method8 = Method(8,"Masuda")
 
         methods.addAll(listOf(method1,method8))
-
-        /*
-        Version 1: or, argent, cristal
-        2: rubis, saphire, émeraude
-        3: diamant, perle, platine
-        4: noir/blanc
-        5: noir 2/blanc2
-        6: X/Y
-        7: rubis alpha
-        8: soleil lune
-         */
 
         when (version.number) {
             3 -> methods.add(method6)

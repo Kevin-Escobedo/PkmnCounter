@@ -5,13 +5,13 @@ import java.io.Serializable;
 public class Method implements Serializable {
 
     private String name;
-    private int rateWithCc;
-    private int rateWithoutCc;
+    private Number id;
 
     public Method() {
     }
 
-    public Method(String name) {
+    public Method(Number id, String name) {
+        this.id = id;
         this.name = name;
     }
 
@@ -19,25 +19,8 @@ public class Method implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public int getRateWithCc() {
-        return rateWithCc;
-    }
-
-    public void setRateWithCc(int rateWithCc) {
-        this.rateWithCc = rateWithCc;
-    }
-
-    public int getRateWithoutCc() {
-        return rateWithoutCc;
-    }
-
-    public void setRateWithoutCc(int rateWithoutCc) {
-        this.rateWithoutCc = rateWithoutCc;
+    public Number getId() {
+        return id;
     }
 
     @Override
