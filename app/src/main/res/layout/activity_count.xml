@@ -10,26 +10,26 @@
 
     <Button
         android:id="@+id/addButton"
-        android:layout_width="156dp"
-        android:layout_height="152dp"
+        android:layout_width="112dp"
+        android:layout_height="103dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="468dp"
         android:layout_marginEnd="127dp"
         android:layout_marginBottom="99dp"
-        android:background="@drawable/pokeball"
+        android:background="@drawable/pokeball_button"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.418"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.708" />
+        app:layout_constraintVertical_bias="0.832" />
 
     <TextView
         android:id="@+id/chosen_version"
         android:layout_width="84dp"
         android:layout_height="37dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:fontFamily="casual"
         android:gravity="center_vertical"
@@ -39,14 +39,14 @@
         app:layout_constraintBottom_toTopOf="@+id/addButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/chosen_method"
         android:layout_width="84dp"
         android:layout_height="32dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="casual"
         android:gravity="center_vertical"
         android:text="@string/chosen_method"
@@ -60,9 +60,9 @@
     <TextView
         android:id="@+id/chosen_pkmn"
         android:layout_width="84dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="212dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="150dp"
         android:fontFamily="casual"
         android:gravity="center_vertical"
         android:text="@string/pkmn_chosen_name"
@@ -77,50 +77,53 @@
         android:id="@+id/method_rate"
         android:layout_width="84dp"
         android:layout_height="32dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="252dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="220dp"
         android:fontFamily="casual"
         android:gravity="center_vertical"
         android:text="@string/rate"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chosen_pkmn" />
+        app:layout_constraintBottom_toTopOf="@+id/addButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/counter"
         android:layout_width="84dp"
         android:layout_height="32dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="290dp"
         android:fontFamily="casual"
         android:gravity="center_vertical"
         android:text="@string/counter"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/addButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chosen_pkmn" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/versionName"
-        android:layout_width="215dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="165dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="casual"
         android:gravity="center_horizontal|center_vertical"
         app:layout_constraintBottom_toTopOf="@+id/addButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintVertical_bias="0.0"/>
 
     <TextView
         android:id="@+id/methodName"
-        android:layout_width="215dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="116dp"
+        android:layout_width="164dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="casual"
         android:gravity="center_horizontal|fill_vertical"
@@ -131,9 +134,9 @@
 
     <TextView
         android:id="@+id/pokemonName"
-        android:layout_width="215dp"
+        android:layout_width="164dp"
         android:layout_height="40dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="casual"
         android:gravity="center_horizontal|center_vertical"
@@ -144,49 +147,53 @@
 
     <TextView
         android:id="@+id/occurences"
-        android:layout_width="215dp"
+        android:layout_width="164dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="290dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center_vertical|center_horizontal"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/counter"
-        app:layout_constraintTop_toBottomOf="@+id/methodRate" />
+        app:layout_constraintBottom_toTopOf="@+id/addButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/methodRate"
-        android:layout_width="215dp"
+        android:layout_width="164dp"
         android:layout_height="40dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="220dp"
         android:layout_marginEnd="16dp"
         android:gravity="center_horizontal|center_vertical"
+        app:layout_constraintBottom_toTopOf="@+id/addButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pokemonName" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/saveButton"
-        android:layout_width="66dp"
-        android:layout_height="59dp"
+        android:layout_width="61dp"
+        android:layout_height="55dp"
         android:layout_marginTop="72dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="77dp"
-        android:background="@drawable/validate"
+        android:background="@drawable/save_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addButton"
-        app:layout_constraintVertical_bias="0.558" />
+        app:layout_constraintVertical_bias="0.53" />
 
     <Button
         android:id="@+id/backButton"
-        android:layout_width="66dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="58dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="72dp"
         android:layout_marginBottom="77dp"
-        android:background="@drawable/back"
+        android:background="@drawable/back_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addButton"
-        app:layout_constraintVertical_bias="0.558" />
+        app:layout_constraintVertical_bias="0.504" />
 </android.support.constraint.ConstraintLayout>
